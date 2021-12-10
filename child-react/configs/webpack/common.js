@@ -1,5 +1,6 @@
 // shared config (dev and prod)
 const { resolve } = require("path");
+const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -31,7 +32,17 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "index.html.ejs" })],
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "childReact", // follow JS variable naming
+      filename: "remoteEntry.js",
+      exposes: {
+        "./App": "./App.tsx",
+      },
+      shared: { react: { singleton: true }, "react-dom": { singleton: true } },
+    }),
+    new HtmlWebpackPlugin({ template: "index.html.ejs" }),
+  ],
   externals: {
     react: "React",
     "react-dom": "ReactDOM",
