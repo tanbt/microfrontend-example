@@ -1,11 +1,11 @@
 import * as React from "react";
 
-const RemoteButton = React.lazy(() => import("app2/Button"));
+const RemoteButton = React.lazy(() => import("container/Button"));
 
 const App = () => (
   <div>
     <h1>Typescript</h1>
-    <h2>App 1</h2>
+    <h2>Host</h2>
     <React.Suspense fallback="Loading Button">
       <RemoteButton />
     </React.Suspense>

@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app2",
+      name: "container", // must match the `remotes` config in the host app
       filename: "remoteEntry.js",
       exposes: {
         "./Button": "./src/Button",

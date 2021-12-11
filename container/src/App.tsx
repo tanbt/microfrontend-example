@@ -5,7 +5,7 @@ import LocalButton from "./Button";
 const App = () => (
   <div>
     <h1>Typescript</h1>
-    <h2>App 2</h2>
+    <h2>Container</h2>
     <LocalButton />
   </div>
 );
