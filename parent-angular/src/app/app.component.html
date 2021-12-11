@@ -1,2 +1,5 @@
 <div>Hello from Parent</div>
-<react-counter></react-counter>
+<react-counter
+  [counter]="counter"
+  (onIncrease)="handleOnChildClick($event)"
+></react-counter>
