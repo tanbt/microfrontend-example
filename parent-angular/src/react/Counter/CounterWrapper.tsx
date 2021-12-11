@@ -4,6 +4,9 @@ import {
   OnDestroy,
   OnChanges,
   AfterViewInit,
+  Input,
+  Output,
+  EventEmitter,
 } from "@angular/core";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -18,6 +21,19 @@ export class CounterWrapper
 {
   private rootDomID: string = "react-counter";
 
+  @Input() public counter = 5;
+  @Output() public onIncrease = new EventEmitter<void>();
+
+  constructor() {
+    this.handleIncrease = this.handleIncrease.bind(this);
+  }
+  public handleIncrease() {
+    if (this.onIncrease) {
+      this.onIncrease.emit();
+      this.render();
+    }
+  }
+
   protected getRootDomNode() {
     return document.getElementById(this.rootDomID) || new HTMLElement();
   }
@@ -28,7 +44,12 @@ export class CounterWrapper
 
   protected render() {
     if (this.isMounted()) {
-      ReactDOM.render(React.createElement(Counter), this.getRootDomNode());
+      const { counter } = this;
+
+      ReactDOM.render(
+        <Counter counter={counter} onIncrease={this.handleIncrease} />,
+        this.getRootDomNode()
+      );
     }
   }
 

@@ -1,20 +1,18 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import "./Counter.scss";
 
-export const Counter = () => {
-  const [count, setCount] = useState(0);
+export interface CounterProps {
+  counter: number;
+  onIncrease: () => void;
+}
 
-  const increase = useCallback(() => {
-    setCount(count + 1);
-  }, [count]);
-
-  const decrease = useCallback(() => setCount(count - 1), [count]);
+export const Counter = (props: CounterProps) => {
+  const { counter, onIncrease } = props;
 
   return (
     <div>
-      <div id="value">React value: {count}</div>
-      <button onClick={increase}>Increase</button>
-      <button onClick={decrease}>Decrease</button>
+      <div id="value">React value: {counter}</div>
+      <button onClick={onIncrease}>Increase</button>
     </div>
   );
 };
