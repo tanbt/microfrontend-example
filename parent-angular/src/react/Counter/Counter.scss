@@ -5,12 +5,14 @@ $border-radius: 4px;
   border-radius: $radius;
 }
 
-#react-counter > div {
-  margin: 1rem 0;
-
-  button {
-    @include with-border($border-radius, blue);
-    display: inline-block;
-    padding: 0.5rem;
+#reactCounterWrapperId {
+  display: inline-block;
+  margin: .5rem 0;
+  > div {
+    button {
+      @include with-border($border-radius, blue);
+      display: inline-block;
+      padding: 0.5rem;
+    }
   }
 }

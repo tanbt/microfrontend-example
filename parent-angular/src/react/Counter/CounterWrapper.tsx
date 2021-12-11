@@ -18,7 +18,7 @@ const rootDomID: string = "reactCounterWrapperId";
 
 @Component({
   selector: "react-counter",
-  template: `<span #${rootDomID}></span>`,
+  template: `<span id="${rootDomID}" #${rootDomID}></span>`,
 })
 export class CounterWrapper
   implements OnInit, OnDestroy, OnChanges, AfterViewInit
@@ -37,13 +37,23 @@ export class CounterWrapper
       this.render();
     }
   }
+  private getRootDomNode() {
+    if (!this.containerRef || !this.containerRef.nativeElement) {
+      // const newRootEl = document.createElement("span");
+      // newRootEl.setAttribute("id", rootDomID);
+      // document.body.appendChild(newRootEl);
+      // return newRootEl;
+      throw new Error("Cannot get root element. This should not happen.");
+    }
+    return this.containerRef.nativeElement;
+  }
 
   protected render() {
     if (!this.containerRef || !this.containerRef.nativeElement) return;
     const { counter } = this;
     ReactDOM.render(
       <Counter counter={counter} onIncrease={this.handleIncrease} />,
-      this.containerRef.nativeElement
+      this.getRootDomNode()
     );
   }
 
@@ -58,6 +68,6 @@ export class CounterWrapper
   }
 
   ngOnDestroy() {
-    ReactDOM.unmountComponentAtNode(this.containerRef.nativeElement);
+    ReactDOM.unmountComponentAtNode(this.getRootDomNode());
   }
 }
