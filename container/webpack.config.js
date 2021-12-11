@@ -43,6 +43,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Button": "./src/Button",
+        "./Counter": "./src/Counter",
       },
       shared: ["react", "react-dom"],
     }),

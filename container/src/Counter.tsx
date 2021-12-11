@@ -13,7 +13,7 @@ const buttonStyle = {
   padding: "0.5rem",
 };
 
-export const Counter = (props: CounterProps) => {
+const Counter = (props: CounterProps) => {
   const { counter, onIncrease } = props;
 
   const [count, setCount] = useState(0);
@@ -43,3 +43,6 @@ export const Counter = (props: CounterProps) => {
     </div>
   );
 };
+
+// React.lazy only supports for Default exports.
+export default Counter;

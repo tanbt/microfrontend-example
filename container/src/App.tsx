@@ -1,6 +1,6 @@
 import * as React from "react";
 import LocalButton from "./Button";
-import { Counter } from "./Counter";
+import Counter from "./Counter";
 
 const App = () => {
   const [count, setCount] = React.useState(123);
