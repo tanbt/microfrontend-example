@@ -7,19 +7,23 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ElementRef,
 } from "@angular/core";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Counter } from "./Counter";
 
+const rootDomID: string = "reactCounterWrapperId";
+
 @Component({
   selector: "react-counter",
-  template: '<span [id]="rootDomID"></span>',
+  template: `<span #${rootDomID}></span>`,
 })
 export class CounterWrapper
   implements OnInit, OnDestroy, OnChanges, AfterViewInit
 {
-  private rootDomID: string = "react-counter";
+  @ViewChild(rootDomID, { static: false }) containerRef: ElementRef | undefined;
 
   @Input() public counter = 5;
   @Output() public onIncrease = new EventEmitter<void>();
@@ -34,23 +38,13 @@ export class CounterWrapper
     }
   }
 
-  protected getRootDomNode() {
-    return document.getElementById(this.rootDomID) || new HTMLElement();
-  }
-
-  private isMounted(): boolean {
-    return !!this.rootDomID;
-  }
-
   protected render() {
-    if (this.isMounted()) {
-      const { counter } = this;
-
-      ReactDOM.render(
-        <Counter counter={counter} onIncrease={this.handleIncrease} />,
-        this.getRootDomNode()
-      );
-    }
+    if (!this.containerRef || !this.containerRef.nativeElement) return;
+    const { counter } = this;
+    ReactDOM.render(
+      <Counter counter={counter} onIncrease={this.handleIncrease} />,
+      this.containerRef.nativeElement
+    );
   }
 
   ngOnInit() {}
@@ -64,6 +58,6 @@ export class CounterWrapper
   }
 
   ngOnDestroy() {
-    ReactDOM.unmountComponentAtNode(this.getRootDomNode());
+    ReactDOM.unmountComponentAtNode(this.containerRef.nativeElement);
   }
 }
