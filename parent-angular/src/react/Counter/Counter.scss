@@ -1,0 +1,16 @@
+$border-radius: 4px;
+
+@mixin with-border($radius: $border-radius, $border-color: black) {
+  border: 1px solid $border-color;
+  border-radius: $radius;
+}
+
+#react-counter > div {
+  margin: 1rem 0;
+
+  button {
+    @include with-border($border-radius, blue);
+    display: inline-block;
+    padding: 0.5rem;
+  }
+}

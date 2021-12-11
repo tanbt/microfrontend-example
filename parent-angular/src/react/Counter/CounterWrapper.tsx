@@ -16,7 +16,7 @@ import { Counter } from "./Counter";
 export class CounterWrapper
   implements OnInit, OnDestroy, OnChanges, AfterViewInit
 {
-  private rootDomID: string = "uuid123";
+  private rootDomID: string = "react-counter";
 
   protected getRootDomNode() {
     return document.getElementById(this.rootDomID) || new HTMLElement();
@@ -32,9 +32,7 @@ export class CounterWrapper
     }
   }
 
-  ngOnInit() {
-    this.rootDomID = new Date().toISOString();
-  }
+  ngOnInit() {}
 
   ngOnChanges() {
     this.render();
