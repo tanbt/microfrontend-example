@@ -10,7 +10,6 @@ import {
   ViewChild,
   ElementRef,
 } from "@angular/core";
-import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Counter } from "./Counter";
 
@@ -30,6 +29,7 @@ export class CounterWrapper
 
   constructor() {
     this.handleIncrease = this.handleIncrease.bind(this);
+    // Or using `private handleIncrease = () => {...}` to eliminate this binding.
   }
   public handleIncrease() {
     if (this.onIncrease) {
