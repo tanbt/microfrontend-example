@@ -1,6 +1,13 @@
-# ParentAngular
+# Angular contains React
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
+A simple Angular 4+ project that render a React component.
+
+For micro-frontend, the React component can be packaged as a separate NPM module with a version tag.
+## Run in localhost
+* Install dependencies: `npm ci`
+* Run `npm start`
+
+Access http://localhost:4200/
 
 ## Development server
 
