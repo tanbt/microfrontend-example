@@ -1,7 +1,6 @@
 import * as React from "react";
 
-// React.lazy only supports for Default exports.
-const RemoteButton = React.lazy(() => import("container/Button"));
+// React.lazy only supports Default exports.
 const RemoteCounter = React.lazy(() => import("container/Counter"));
 
 const App = () => {
@@ -11,8 +10,7 @@ const App = () => {
     <div>
       <h1>Typescript</h1>
       <h2>Host</h2>
-      <React.Suspense fallback="Loading Button">
-        <RemoteButton />
+      <React.Suspense fallback="Loading remote component">
         <RemoteCounter counter={count} onIncrease={() => setCount(count + 1)} />
       </React.Suspense>
     </div>

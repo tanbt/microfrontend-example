@@ -42,7 +42,6 @@ module.exports = {
       name: "container", // must match the `remotes` config in the host app
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/Button",
         "./Counter": "./src/Counter",
       },
       shared: ["react", "react-dom"],

@@ -1,5 +1,4 @@
 import * as React from "react";
-import LocalButton from "./Button";
 import Counter from "./Counter";
 
 const App = () => {
@@ -9,7 +8,6 @@ const App = () => {
     <div>
       <h1>Typescript</h1>
       <h2>Container</h2>
-      <LocalButton />
       <Counter counter={count} onIncrease={() => setCount(count + 1)} />
     </div>
   );
