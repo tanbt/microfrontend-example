@@ -17,7 +17,8 @@
     "start": "lerna run --scope @typescript/* --parallel start",
     "build": "lerna run --scope @typescript/* build",
     "serve": "lerna run --scope @typescript/* --parallel serve",
-    "clean": "lerna run --scope @typescript/* --parallel clean"
+    "clean": "lerna run --scope @typescript/* --parallel clean",
+    "postinstall": "cd container && yarn && cd ../host && yarn && cd .. && yarn start"
   },
   "devDependencies": {
     "lerna": "3.22.1"
