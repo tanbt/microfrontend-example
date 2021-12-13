@@ -1,2 +1,2 @@
 # Micro-frontend example
-Tech: Webpack 5 Module Federation, Angular as the parent app, React as child app.
+Build-time integration: Angular 4+ app that loads a React component via a wrapper

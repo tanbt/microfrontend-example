@@ -4,7 +4,8 @@
   "description": "Micro-frontend demo with Angular, React and Webpack 5 Module Federation",
   "main": "index.js",
   "scripts": {
-    "test": "yarn test"
+    "install": "cd angular-app && npm ci",
+    "start": "cd angular-app && npm start"
   },
   "keywords": [
     "micro-frontends",
