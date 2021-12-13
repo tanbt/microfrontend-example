@@ -35,11 +35,12 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "childReact", // follow JS variable naming
+      library: { type: "var", name: "childReact" },
       filename: "remoteEntry.js",
       exposes: {
         "./Counter": "./components/Counter.tsx",
       },
-      shared: { react: { singleton: true }, "react-dom": { singleton: true } },
+      shared: ["react", "react-dom"],
     }),
     new HtmlWebpackPlugin({ template: "index.html.ejs" }),
   ],
