@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Micro-frontend demo with Angular, React and Webpack 5 Module Federation",
   "main": "index.js",
-  "scripts": {
-    "test": "yarn test"
-  },
   "keywords": [
     "micro-frontends",
     "webpack",
@@ -15,5 +12,15 @@
     "react"
   ],
   "author": "Tan Bui <trungtanbui@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "start": "lerna run --scope @typescript/* --parallel start",
+    "build": "lerna run --scope @typescript/* build",
+    "serve": "lerna run --scope @typescript/* --parallel serve",
+    "clean": "lerna run --scope @typescript/* --parallel clean",
+    "postinstall": "cd parent-angular && npm i && cd ../child-react && yarn && cd .. && yarn start"
+  },
+  "devDependencies": {
+    "lerna": "3.22.1"
+  }
 }

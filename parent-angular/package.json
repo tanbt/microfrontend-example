@@ -1,5 +1,5 @@
 {
-  "name": "parent-angular",
+  "name": "@typescript/parent-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

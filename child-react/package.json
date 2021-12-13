@@ -1,5 +1,5 @@
 {
-  "name": "child-react",
+  "name": "@typescript/child-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
