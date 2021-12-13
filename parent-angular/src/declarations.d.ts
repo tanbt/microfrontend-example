@@ -1,2 +1,2 @@
 declare module "childReact";
-declare module "childReact/App";
+declare module "childReact/Counter";

@@ -37,7 +37,7 @@ module.exports = {
       name: "childReact", // follow JS variable naming
       filename: "remoteEntry.js",
       exposes: {
-        "./App": "./App.tsx",
+        "./Counter": "./components/Counter.tsx",
       },
       shared: { react: { singleton: true }, "react-dom": { singleton: true } },
     }),

@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: 'federation',
     loadChildren: () =>
-      import('childReact/App').then((x) => x.ClientCitiesModule),
+      import('childReact/Counter').then((x) => x.ClientCitiesModule),
   },
 ];
 
