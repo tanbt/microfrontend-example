@@ -5,7 +5,7 @@ module.exports = (options) => {
     entry: "./index.js",
     output: {
       filename: "bundle.js",
-      publicPath: "http://localhost:4204/",
+      publicPath: "http://localhost:4202/",
       uniqueName: "child-react",
     },
     module: {
@@ -37,7 +37,7 @@ module.exports = (options) => {
       }),
     ],
     devServer: {
-      port: 4204,
+      port: 4202,
     },
   };
 };

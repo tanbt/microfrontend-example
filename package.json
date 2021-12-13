@@ -2,10 +2,6 @@
   "name": "microfrontend-example",
   "version": "1.0.0",
   "description": "Micro-frontend demo with Angular, React and Webpack 5 Module Federation",
-  "main": "index.js",
-  "scripts": {
-    "test": "yarn test"
-  },
   "keywords": [
     "micro-frontends",
     "webpack",
@@ -15,5 +11,13 @@
     "react"
   ],
   "author": "Tan Bui <trungtanbui@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "start": "lerna run start --stream"
+  }
 }
