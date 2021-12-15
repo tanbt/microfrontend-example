@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "host"
+  "defaultProject": "host",
+  "cli": {
+    "analytics": false
+  }
 }
