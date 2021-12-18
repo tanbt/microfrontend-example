@@ -28,7 +28,6 @@ module.exports = (options) => {
     plugins: [
       new ModuleFederationPlugin({
         name: "childReact",
-        library: { type: "var", name: "childReact" },
         filename: "remoteEntry.js",
         exposes: {
           "./web-components": "./app.js",
